@@ -12,7 +12,7 @@ class App extends Component {
 
   changeDealine() {
     this.setState({
-      newdeadline: event.target.value
+      deadline: this.state.newdeadline, newdeadline: event.target.value
     })
   }
 
@@ -26,7 +26,8 @@ class App extends Component {
           <p className="Clock-minutes">Minut: 17</p>
           <p className="Clock-seconds">Sekund: 55</p>
         </div>
-        <input type="text" placeholder="Wpisz nową datę" className=".Deadline-input" />
+        
+        <input onChange={event => this.setState({newdeadline: event.target.value})} type="text" placeholder="Wpisz nową datę" className=".Deadline-input" />
         <button onClick={() => this.changeDealine()} >Zatwierdz </button>
       </div>
     )
