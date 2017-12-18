@@ -5,14 +5,13 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      deadline: '25 grudnia 2018',
-      newdeadline: ''
+      deadline: '25 grudnia 2018'
     }
   }
 
-  changeDealine() {
+  changeDeadline() {
     this.setState({
-      deadline: this.state.newdeadline, newdeadline: event.target.value
+      deadline: document.getElementById('newdate').value
     })
   }
 
@@ -26,9 +25,10 @@ class App extends Component {
           <p className="Clock-minutes">Minut: 17</p>
           <p className="Clock-seconds">Sekund: 55</p>
         </div>
-        
-        <input onChange={event => this.setState({newdeadline: event.target.value})} type="text" placeholder="Wpisz nową datę" className=".Deadline-input" />
-        <button onClick={() => this.changeDealine()} >Zatwierdz </button>
+        <form onSubmit={event => {event.preventDefault(); }} >
+          <input id="newdate" type="text" placeholder="Wpisz nową datę" className=".Deadline-input" />
+          <button onClick={() => {this.changeDeadline(); console.log('button event')} } >Zatwierdz </button>
+        </form>
       </div>
     )
   }
