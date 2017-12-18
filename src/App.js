@@ -12,7 +12,8 @@ class App extends Component {
 
   changeDealine() {
     this.setState({
-      deadline: this.state.newdeadline, newdeadline: event.target.value
+      deadline: this.state.newdeadline, 
+      newdeadline: event.target.value
     })
   }
 
